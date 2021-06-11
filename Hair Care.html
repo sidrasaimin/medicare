@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <title>Hair Care Product</title>
+        <link rel="stylesheet" href="cart1.css">
+    </header>
+
+<body>
+    
+    <div class="container">
+        <h1>Shopping Cart</h1>
+        <p>Select the item which you want to order.</p>
+        <p>Click 'Empty Cart' button to remove session cookies from browser.</p>
+        <div id="alerts"></div>
+        <div class="productcont">
+            <div class="product">
+                <img src="https://images-na.ssl-images-amazon.com/images/I/81QLZG1L9iL._SL1500_.jpg" alt="" width="150" height="150">
+                <h3 class="productname">WOW Skin Science Onion Black Seed Oil Hair Care Ultimate Kit</h3>
+                <p>Shampoo+ Hair Conditioner + Hair Oil + Hair Mask</p>
+                <p class="price">Rs1499</p>
+                <button class="addtocart">Add To Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://kw.kerastase.com/media/catalog/product/cache/3e92d986a64813ee157afc1e7c1a64a1/k/e/kerastase-resistance-serum-extentioniste-hair-serum.png" alt="" width="150" height="150">
+                <h3 class="productname">Kérastase-Extentioniste Scalp & Hair Serum</h3>
+                <p>50 ml</p>
+                <p class="price">Rs 449</p>
+                <button class="addtocart">Add To Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://images-static.nykaa.com/media/catalog/product/1/1/11996_h-8901030586088.jpg?tr=w-500,pr-true" alt="" width="100" height="150">
+                <h3 class="productname">Indulekha Bringha Hair Oil</h3>
+                <p>50 ml</p>
+                <p class="price">Rs250</p>
+                <button class="addtocart">Add To Cart</button>
+            </div>
+        </div>
+        <div class="productcont">
+            <div class="product">
+                <img src="https://www.sabkideals.in/wp-content/uploads/2021/01/1-5.jpg" alt="" width="150" height="150">
+                <h3 class="productname">Mamaearth Onion Oil for Hair Growth & Hair Fall Control</h3>
+                <p>150 ml</p>
+                <p class="price">Rs 390</p>
+                <button class="addtocart">Add To Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://cdn.shopify.com/s/files/1/0278/4421/4886/files/Serum_4.jpg?v=1603381751" alt="" width="150" height="150">
+                <h3 class="productname">GK Hair-Serum Argan Oil for Hair</h3>
+                <p>50 ml</p>
+                <p class="price">Rs1800</p>
+                <button class="addtocart">Add To Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://images-na.ssl-images-amazon.com/images/I/315Ymwv6LvL.jpg" alt="" width="100" height="150">
+                <h3 class="productname">Global Keratin (GK) Moisturizing Combo</h3>
+                <p>Shampoo(300 ml) + Conditioner(300 ml)</p>
+                <p class="price">Rs3600</p>
+                <button class="addtocart">Add To Cart</button>
+            </div>
+        </div>
+
+        <div class="cart-container">
+            <h2>Cart</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th><strong>Product</strong></th>
+                        <th><strong>Price</strong></th>
+                    </tr>
+                </thead>
+                <tbody id="carttable">
+                </tbody>
+            </table>
+            <hr>
+            <table id="carttotals">
+                <tr>
+                    <td><strong>Items</strong></td>
+                    <td><strong>Total</strong></td>
+                </tr>
+                <tr>
+                    <td>x <span id="itemsquantity">0</span></td>
+
+                    <td>Rs.<span id="total">0</span></td>
+                </tr>
+            </table>
+
+
+            <div class="cart-buttons">
+                <button id="emptycart">Empty Cart</button>
+                <button id="checkout">Checkout</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    /* get cart total from session on load */
+    updateCartTotal();
+
+    /* button event listeners */
+    document.getElementById("emptycart").addEventListener("click", emptyCart);
+    var btns = document.getElementsByClassName('addtocart');
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener('click', function() {
+            addToCart(this);
+        });
+    }
+
+    /* ADD TO CART functions */
+
+    function addToCart(elem) {
+        //init
+        var sibs = [];
+        var getprice;
+        var getproductName;
+        var cart = [];
+        var stringCart;
+        //cycles siblings for product info near the add button
+        while (elem = elem.previousSibling) {
+            if (elem.nodeType === 3) continue; // text node
+            if (elem.className == "price") {
+                getprice = elem.innerText;
+            }
+            if (elem.className == "productname") {
+                getproductName = elem.innerText;
+            }
+            sibs.push(elem);
+        }
+        //create product object
+        var product = {
+            productname: getproductName,
+            price: getprice
+        };
+        //convert product data to JSON for storage
+        var stringProduct = JSON.stringify(product);
+        /*send product data to session storage */
+
+        if (!sessionStorage.getItem('cart')) {
+            //append product JSON object to cart array
+            cart.push(stringProduct);
+            //cart to JSON
+            stringCart = JSON.stringify(cart);
+            //create session storage cart item
+            sessionStorage.setItem('cart', stringCart);
+            addedToCart(getproductName);
+            updateCartTotal();
+        } else {
+            //get existing cart data from storage and convert back into array
+            cart = JSON.parse(sessionStorage.getItem('cart'));
+            //append new product JSON object
+            cart.push(stringProduct);
+            //cart back to JSON
+            stringCart = JSON.stringify(cart);
+            //overwrite cart data in sessionstorage
+            sessionStorage.setItem('cart', stringCart);
+            addedToCart(getproductName);
+            updateCartTotal();
+        }
+    }
+    /* Calculate Cart Total */
+    function updateCartTotal() {
+        //init
+        var total = 0;
+        var price = 0;
+        var items = 0;
+        var productname = "";
+        var carttable = "";
+        if (sessionStorage.getItem('cart')) {
+            //get cart data & parse to array
+            var cart = JSON.parse(sessionStorage.getItem('cart'));
+            //get no of items in cart
+            items = cart.length;
+            //loop over cart array
+            for (var i = 0; i < items; i++) {
+                //convert each JSON product in array back into object
+                var x = JSON.parse(cart[i]);
+                //get property value of price
+                price = parseFloat(x.price.split('Rs')[1]);
+                productname = x.productname;
+                //add price to total
+                carttable += "<tr><td>" + productname + "</td><td>Rs" + price.toFixed(2) + "</td></tr>";
+                total += price;
+            }
+
+        }
+        //update total on website HTML
+        document.getElementById("total").innerHTML = total.toFixed(2);
+        //insert saved products to cart table
+        document.getElementById("carttable").innerHTML = carttable;
+        //update items in cart on website HTML
+        document.getElementById("itemsquantity").innerHTML = items;
+    }
+    //user feedback on successful add
+    function addedToCart(pname) {
+        var message = pname + " was added to the cart";
+        var alerts = document.getElementById("alerts");
+        alerts.innerHTML = message;
+        if (!alerts.classList.contains("message")) {
+            alerts.classList.add("message");
+        }
+    }
+    /* User Manually empty cart */
+    function emptyCart() {
+        //remove cart session storage object & refresh cart totals
+        if (sessionStorage.getItem('cart')) {
+            sessionStorage.removeItem('cart');
+            updateCartTotal();
+            //clear message and remove class style
+            var alerts = document.getElementById("alerts");
+            alerts.innerHTML = "";
+            if (alerts.classList.contains("message")) {
+                alerts.classList.remove("message");
+            }
+        }
+    }
+</script>
+
+</html>

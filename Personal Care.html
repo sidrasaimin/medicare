@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <title>Personal Care Product</title>
+        <link rel="stylesheet" href="cart1.css">
+    </header>
+
+<body>
+    
+    <div class="container">
+        <h1>Shopping Cart</h1>
+        <p>Select the item which you want to order.</p>
+        <p>Click 'Empty Cart' button to remove session cookies from browser.</p>
+        <div id="alerts"></div>
+        <div class="productcont">
+            <div class="product">
+                <img src="https://5.imimg.com/data5/MV/PF/MY-33980558/dabur-honey-500x500.jpg" alt="" width="150" height="150">
+                <h3 class="productname">Dabur Honey</h3>
+                <p>250 gm</p>
+                <p class="price">Rs 99</p>
+                <button class="addtocart">Add To Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://newassets.apollo247.com/pub/media/catalog/product/d/e/det0004.jpg" alt="" width="150" height="150">
+                <h3 class="productname">Dettol Antiseptic Disinfectant Liquid</h3>
+                <p>500 ml</p>
+                <p class="price">Rs179</p>
+                <button class="addtocart">Add To Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://images-na.ssl-images-amazon.com/images/I/61ru25r%2Bi-S._SL1500_.jpg" alt="" width="100" height="150">
+                <h3 class="productname">Gillette Fusion Manual Shaving Razor</h3>
+                <p>1 Count</p>
+                <p class="price">Rs350</p>
+                <button class="addtocart">Add To Cart</button>
+            </div>
+        </div>
+        <div class="productcont">
+            <div class="product">
+                <img src="https://newassets.apollo247.com/pub/media/catalog/product/o/r/ora0306_ora0305_1.jpeg" alt="" width="150" height="150">
+                <h3 class="productname">Oral-B Cavity Defense 123 Black Medium Toothbrush</h3>
+                <p>4 Count (Buy 4 @ Rs.99)</p>
+                <p class="price">Rs99</p>
+                <button class="addtocart">Add To Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://www.netmeds.com/images/product-v1/600x600/828303/dettol_instant_hand_sanitizer_original_pack_of_2_x_50_ml_0.jpg" alt="" width="150" height="150">
+                <h3 class="productname">Dettol Hand Sanitizer Orginal</h3>
+                <p>Pack of 2- 100 ml</p>
+                <p class="price">Rs129</p>
+                <button class="addtocart">Add To Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://images-na.ssl-images-amazon.com/images/I/71J2fty%2BqkL._SX425_.jpg" alt="" width="100" height="150">
+                <h3 class="productname">Gillette Classic Regular Pre Shave Foam</h3>
+                <p>196 gm</p>
+                <p class="price">Rs199</p>
+                <button class="addtocart">Add To Cart</button>
+            </div>
+        </div>
+
+        <div class="productcont">
+            <div class="product">
+                <img src="https://m.media-amazon.com/images/I/71A2QvhA4XL._AC_SS450_.jpg" alt="" width="150" height="150">
+                <h3 class="productname">Gillette Classic Regular Pre Shave Foam</h3>
+                <p>196 gm</p>
+                <p class="price">Rs425</p>
+                <button class="addtocart">Add To Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://images-na.ssl-images-amazon.com/images/I/512PrXMBpLL._SL1000_.jpg" alt="" width="150" height="150">
+                <h3 class="productname">Himalaya Anti-Dandruff Shampoo With Tea Tree</h3>
+                <p>200 ml</p>
+                <p class="price">Rs 140</p>
+                <button class="addtocart">Add To Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://static2.medplusmart.com/products/SENS0065_L.jpg?v=38961c" alt="" width="150" height="150">
+                <h3 class="productname">Sensodyne Rapid Relief Toothpaste</h3>
+                <p>40 gm</p>
+                <p class="price">Rs190</p>
+                <button class="addtocart">Add To Cart</button>
+            </div>
+        </div>
+
+
+        <div class="productcont">
+            <div class="product">
+                <img src="https://www.netmeds.com/images/product-v1/600x600/404327/medimix_ayurvedic_soap_125_gm_0.jpg" alt="" width="150" height="150">
+                <h3 class="productname">Medimix Ayurvedic Soap</h3>
+                <p>125 gm</p>
+                <p class="price">Rs140</p>
+                <button class="addtocart">Add To Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://newassets.apollo247.com/pub/media/catalog/product/m/a/mam0143.jpg" alt="" width="150" height="150">
+                <h3 class="productname">Mamaearth Tea Tree & Ginger Oil Shampoo</h3>
+                <p>250 ml</p>
+                <p class="price">Rs296</p>
+                <button class="addtocart">Add To Cart</button>
+            </div>
+            </div>
+        <div class="cart-container">
+            <h2>Cart</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th><strong>Product</strong></th>
+                        <th><strong>Price</strong></th>
+                    </tr>
+                </thead>
+                <tbody id="carttable">
+                </tbody>
+            </table>
+            <hr>
+            <table id="carttotals">
+                <tr>
+                    <td><strong>Items</strong></td>
+                    <td><strong>Total</strong></td>
+                </tr>
+                <tr>
+                    <td>x <span id="itemsquantity">0</span></td>
+
+                    <td>Rs.<span id="total">0</span></td>
+                </tr>
+            </table>
+
+
+            <div class="cart-buttons">
+                <button id="emptycart">Empty Cart</button>
+                <button id="checkout">Checkout</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    /* get cart total from session on load */
+    updateCartTotal();
+
+    /* button event listeners */
+    document.getElementById("emptycart").addEventListener("click", emptyCart);
+    var btns = document.getElementsByClassName('addtocart');
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener('click', function() {
+            addToCart(this);
+        });
+    }
+
+    /* ADD TO CART functions */
+
+    function addToCart(elem) {
+        //init
+        var sibs = [];
+        var getprice;
+        var getproductName;
+        var cart = [];
+        var stringCart;
+        //cycles siblings for product info near the add button
+        while (elem = elem.previousSibling) {
+            if (elem.nodeType === 3) continue; // text node
+            if (elem.className == "price") {
+                getprice = elem.innerText;
+            }
+            if (elem.className == "productname") {
+                getproductName = elem.innerText;
+            }
+            sibs.push(elem);
+        }
+        //create product object
+        var product = {
+            productname: getproductName,
+            price: getprice
+        };
+        //convert product data to JSON for storage
+        var stringProduct = JSON.stringify(product);
+        /*send product data to session storage */
+
+        if (!sessionStorage.getItem('cart')) {
+            //append product JSON object to cart array
+            cart.push(stringProduct);
+            //cart to JSON
+            stringCart = JSON.stringify(cart);
+            //create session storage cart item
+            sessionStorage.setItem('cart', stringCart);
+            addedToCart(getproductName);
+            updateCartTotal();
+        } else {
+            //get existing cart data from storage and convert back into array
+            cart = JSON.parse(sessionStorage.getItem('cart'));
+            //append new product JSON object
+            cart.push(stringProduct);
+            //cart back to JSON
+            stringCart = JSON.stringify(cart);
+            //overwrite cart data in sessionstorage
+            sessionStorage.setItem('cart', stringCart);
+            addedToCart(getproductName);
+            updateCartTotal();
+        }
+    }
+    /* Calculate Cart Total */
+    function updateCartTotal() {
+        //init
+        var total = 0;
+        var price = 0;
+        var items = 0;
+        var productname = "";
+        var carttable = "";
+        if (sessionStorage.getItem('cart')) {
+            //get cart data & parse to array
+            var cart = JSON.parse(sessionStorage.getItem('cart'));
+            //get no of items in cart
+            items = cart.length;
+            //loop over cart array
+            for (var i = 0; i < items; i++) {
+                //convert each JSON product in array back into object
+                var x = JSON.parse(cart[i]);
+                //get property value of price
+                price = parseFloat(x.price.split('Rs')[1]);
+                productname = x.productname;
+                //add price to total
+                carttable += "<tr><td>" + productname + "</td><td>Rs" + price.toFixed(2) + "</td></tr>";
+                total += price;
+            }
+
+        }
+        //update total on website HTML
+        document.getElementById("total").innerHTML = total.toFixed(2);
+        //insert saved products to cart table
+        document.getElementById("carttable").innerHTML = carttable;
+        //update items in cart on website HTML
+        document.getElementById("itemsquantity").innerHTML = items;
+    }
+    //user feedback on successful add
+    function addedToCart(pname) {
+        var message = pname + " was added to the cart";
+        var alerts = document.getElementById("alerts");
+        alerts.innerHTML = message;
+        if (!alerts.classList.contains("message")) {
+            alerts.classList.add("message");
+        }
+    }
+    /* User Manually empty cart */
+    function emptyCart() {
+        //remove cart session storage object & refresh cart totals
+        if (sessionStorage.getItem('cart')) {
+            sessionStorage.removeItem('cart');
+            updateCartTotal();
+            //clear message and remove class style
+            var alerts = document.getElementById("alerts");
+            alerts.innerHTML = "";
+            if (alerts.classList.contains("message")) {
+                alerts.classList.remove("message");
+            }
+        }
+    }
+</script>
+
+</html>

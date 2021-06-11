@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <title>Lifestyle Ailments</title>
+        <link rel="stylesheet" href="cart1.css">
+    </header>
+<body>
+    <div class="container">
+        <h1>Shopping Cart</h1>
+        <p>Select the item which you want to order.</p>
+        <p>Click 'Empty Cart' button to remove session cookies from browser.</p>
+        <div id="alerts"></div>
+        <div class="productcont">
+            <div class="product">
+                <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQt1JbuJH67WdK6zo-VTca76Y7AFnPmJaPwbXCqDbWN_pht6GbjFtkZ6Wp9A5jk1qL-F14qUSpkJreB5AzGRp1__hLMZJ3GQz39YSvDO9I7dfb9-dHAKQ3P&usqp=CAE" alt="" width="150" height="150">
+                <h3 class="productname">3 Ply Mask</h3>
+                <p>Pack of 100</p>
+                <p class="price">Rs 800</p>
+                <button class="addtocart">Add To Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://homeoayurvedzone1.b-cdn.net/317-large_default/himalaya-cystone-tablets.jpg" alt="" width="150" height="150">
+                <h3 class="productname">Himalaya Cystone Tablets</h3>
+                <p>Total 60 Tablets</p>
+                <p class="price">Rs135</p>
+                <button class="addtocart">Add To Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://res.cloudinary.com/du8msdgbj/image/upload/l_watermark_346,w_690,h_700/a_ignore,w_690,h_700,c_pad,q_auto,f_auto/v1600110796/cropped/mhxyah4ucmqtcpfuigl4.jpg" alt="" width="100" height="150">
+                <h3 class="productname">Nicotex Mint Plus Sugarfree</h3>
+                <p>2mg Gums</p>
+                <p class="price">Rs203</p>
+                <button class="addtocart">Add To Cart</button>
+            </div>
+        </div>
+        <div class="productcont">
+            <div class="product">
+                <img src="https://images-na.ssl-images-amazon.com/images/I/61ylGhrucXL._SL1500_.jpg" alt="" width="150" height="150">
+                <h3 class="productname">Dr Odin Finger Tip Pulse Oximeter RS 4500</h3>
+                <p>With Pulse Sound & Alarm Alert</p>
+                <p class="price">Rs 4500</p>
+                <button class="addtocart">Add To Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://cdn01.pharmeasy.in/dam/products_otc/F61000/everherb-kidney-protect-blend-of-8-natural-powerful-herbs-promotes-healthy-urine-flow-60-tablets-2-1597367196.jpg" alt="" width="150" height="150">
+                <h3 class="productname">Everherb Kidney Protect -blend Of 8 Natural Powerful Herbs - Promotes Healthy Urine Flow</h3>
+                <p>60 Tablets</p>
+                <p class="price">Rs799</p>
+                <button class="addtocart">Add To Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://cdn01.pharmeasy.in/dam/products_otc/T55512/medlife-essential-snooze-tablet-60-2-1604820345.jpg" alt="" width="100" height="150">
+                <h3 class="productname">Medlife Essential Snooze</h3>
+                <p>Total 60 Tablets</p>
+                <p class="price">Rs999</p>
+                <button class="addtocart">Add To Cart</button>
+            </div>
+        </div>
+        <div class="productcont">
+            <div class="product">
+                <img src="https://cdn01.pharmeasy.in/dam/products_otc/000685/accu-chek-softclix-lancet-25s-pack-2-1612781488.jpg" alt="" width="150" height="150">
+                <h3 class="productname">Accu-chek Softclix Lancet</h3>
+                <p>25 Lancet's Pack</p>
+                <p class="price">Rs 125</p>
+                <button class="addtocart">Add To Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://cdn01.pharmeasy.in/dam/products_otc/V46471/one-touch-select-plus-glucometer-test-strips-box-of-25-1-1612264308.jpg" alt="" width="150" height="150">
+                <h3 class="productname">One Touch Select Plus Glucometer Test Strips</h3>
+                <p>One Touch Select Plus Glucometer Test Strips</p>
+                <p class="price">Rs625</p>
+                <button class="addtocart">Add To Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://images-na.ssl-images-amazon.com/images/I/619I9Pwf%2BFL._SX466_.jpg" alt="" width="150" height="150">
+                <h3 class="productname">Himalaya Amalaki</h3>
+                <p>Immunity Wellness- 60 Tablets</p>
+                <p class="price">Rs165</p>
+                <button class="addtocart">Add To Cart</button>
+            </div>
+        </div>
+        <div class="productcont">
+            <div class="product">
+                <img src="https://img2.hkrtcdn.com/14208/prd_1420741-Himalayan-Organics-Organic-Biotin-10000mcg-120-capsules-Unflavoured_c_l.jpg" alt="" width="150" height="150">
+                <h3 class="productname">Himalayan Oganics</h3>
+                <p>Plant Based Biotin- 120 Capsules</p>
+                <p class="price">Rs 599</p>
+                <button class="addtocart">Add To Cart</button>
+            </div>
+            </div>
+        <div class="cart-container">
+            <h2>Cart</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th><strong>Product</strong></th>
+                        <th><strong>Price</strong></th>
+                    </tr>
+                </thead>
+                <tbody id="carttable">
+                </tbody>
+            </table>
+            <hr>
+            <table id="carttotals">
+                <tr>
+                    <td><strong>Items</strong></td>
+                    <td><strong>Total</strong></td>
+                </tr>
+                <tr>
+                    <td>x <span id="itemsquantity">0</span></td>
+
+                    <td>Rs.<span id="total">0</span></td>
+                </tr>
+            </table>
+
+
+            <div class="cart-buttons">
+                <button id="emptycart">Empty Cart</button>
+                <button id="checkout">Checkout</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    /* get cart total from session on load */
+    updateCartTotal();
+
+    /* button event listeners */
+    document.getElementById("emptycart").addEventListener("click", emptyCart);
+    var btns = document.getElementsByClassName('addtocart');
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener('click', function() {
+            addToCart(this);
+        });
+    }
+
+    /* ADD TO CART functions */
+
+    function addToCart(elem) {
+        //init
+        var sibs = [];
+        var getprice;
+        var getproductName;
+        var cart = [];
+        var stringCart;
+        //cycles siblings for product info near the add button
+        while (elem = elem.previousSibling) {
+            if (elem.nodeType === 3) continue; // text node
+            if (elem.className == "price") {
+                getprice = elem.innerText;
+            }
+            if (elem.className == "productname") {
+                getproductName = elem.innerText;
+            }
+            sibs.push(elem);
+        }
+        //create product object
+        var product = {
+            productname: getproductName,
+            price: getprice
+        };
+        //convert product data to JSON for storage
+        var stringProduct = JSON.stringify(product);
+        /*send product data to session storage */
+
+        if (!sessionStorage.getItem('cart')) {
+            //append product JSON object to cart array
+            cart.push(stringProduct);
+            //cart to JSON
+            stringCart = JSON.stringify(cart);
+            //create session storage cart item
+            sessionStorage.setItem('cart', stringCart);
+            addedToCart(getproductName);
+            updateCartTotal();
+        } else {
+            //get existing cart data from storage and convert back into array
+            cart = JSON.parse(sessionStorage.getItem('cart'));
+            //append new product JSON object
+            cart.push(stringProduct);
+            //cart back to JSON
+            stringCart = JSON.stringify(cart);
+            //overwrite cart data in sessionstorage
+            sessionStorage.setItem('cart', stringCart);
+            addedToCart(getproductName);
+            updateCartTotal();
+        }
+    }
+    /* Calculate Cart Total */
+    function updateCartTotal() {
+        //init
+        var total = 0;
+        var price = 0;
+        var items = 0;
+        var productname = "";
+        var carttable = "";
+        if (sessionStorage.getItem('cart')) {
+            //get cart data & parse to array
+            var cart = JSON.parse(sessionStorage.getItem('cart'));
+            //get no of items in cart
+            items = cart.length;
+            //loop over cart array
+            for (var i = 0; i < items; i++) {
+                //convert each JSON product in array back into object
+                var x = JSON.parse(cart[i]);
+                //get property value of price
+                price = parseFloat(x.price.split('Rs')[1]);
+                productname = x.productname;
+                //add price to total
+                carttable += "<tr><td>" + productname + "</td><td>Rs" + price.toFixed(2) + "</td></tr>";
+                total += price;
+            }
+
+        }
+        //update total on website HTML
+        document.getElementById("total").innerHTML = total.toFixed(2);
+        //insert saved products to cart table
+        document.getElementById("carttable").innerHTML = carttable;
+        //update items in cart on website HTML
+        document.getElementById("itemsquantity").innerHTML = items;
+    }
+    //user feedback on successful add
+    function addedToCart(pname) {
+        var message = pname + " was added to the cart";
+        var alerts = document.getElementById("alerts");
+        alerts.innerHTML = message;
+        if (!alerts.classList.contains("message")) {
+            alerts.classList.add("message");
+        }
+    }
+    /* User Manually empty cart */
+    function emptyCart() {
+        //remove cart session storage object & refresh cart totals
+        if (sessionStorage.getItem('cart')) {
+            sessionStorage.removeItem('cart');
+            updateCartTotal();
+            //clear message and remove class style
+            var alerts = document.getElementById("alerts");
+            alerts.innerHTML = "";
+            if (alerts.classList.contains("message")) {
+                alerts.classList.remove("message");
+            }
+        }
+    }
+</script>
+
+</html>
